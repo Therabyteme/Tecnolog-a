@@ -17,7 +17,8 @@ public class peresha {
     {}
 	
 	private void juego(){
-		int posicion = tableronormal[(m)][(n)];
+		
+	int posicion = tableronormal[(m)][(n)]; //posicion actual en que estamos, con el tablero ya con las celulas generadas
         int vecino1 = tableronormal[(m)][(n+1)];
         int vecino2 = tableronormal[(m)][(n+2)];
         
@@ -29,7 +30,10 @@ public class peresha {
         int vecino7= tableronormal[(m+2)][(n+1)];
         int vecino8 = tableronormal[(m+2)][(n+2)];
         
-        
+        /* Se hace un tablero auxiliar(tablero analizao), que se igualará al que teníamos original(tableronormal), y se analiza sobre el el tablero auxiliar primero
+        A medida que se analiza el tablero auxiliar, se van generando o matando vidas en distintas pocisiones de otro tablero auxiliar (generaciones) 
+     Al final cuando ya se ha creado el nuevo tablero con las reglas aplicadas, se iguala al tablero normal, y si se hacen mas generaciones, inicia de nuevo con el mismo proceso 
+        */
         tableroanalizao[0][0] = posicion;
         tableroanalizao[0][1] = vecino1;
         tableroanalizao[0][2] = vecino2;
@@ -42,11 +46,12 @@ public class peresha {
         tableroanalizao[2][1] = vecino7;
         tableroanalizao[2][2] = vecino8;
         
-            int contador = 0;
+            int contador = 0; //pa saber cuantas celulas vivas hay
             int k = 0;
             int l = 0;
             
-            for(k = 0 ; k < 3 ; k++)
+            //saber cuantos vecinos vivos hay
+            for(k = 0 ; k < 3 ; k++) 
             {
                 for( l= 0 ; l < 3 ; l++)
                 {
@@ -61,23 +66,23 @@ public class peresha {
                 }
             }
 
-            if(contador < 2 && tableroanalizao[1][1] == 1) 
+            if(contador < 2 && tableroanalizao[1][1] == 1)  //si una celula viva tiene menos de dos vecinos, muere de soledad
             {  
-                nuevageneracion[(m+1)][(n+1)] = 0;
+                nuevageneracion[(m+1)][(n+1)] = 0; 
             }
-            else if(contador > 3 && tableroanalizao[1][1] == 1) 
+            else if(contador > 3 && tableroanalizao[1][1] == 1) //si una celula viva tiene más de 3 vecinos, muere por sobrepoblacion
             { 
                 nuevageneracion[(m+1)][(n+1)] = 0;
             }
-            else if(contador == 3 && tableroanalizao[1][1] == 0 ) 
+            else if(contador == 3 && tableroanalizao[1][1] == 0 ) //si la celula está muerta y tiene exactamente tres vecinos vivos, renace
             { 
                 nuevageneracion[(m+1)][(n+1)] = 1;
             }
-            else if(contador == 3 && tableroanalizao[1][1] == 1 ) 
+            else if(contador == 3 && tableroanalizao[1][1] == 1 ) // si la celula está viva y tiene exactamente tres vecinos vivos, sobrevive
             { 
                 nuevageneracion[(m+1)][(n+1)] = 1;
             }
-            else if(contador == 2 ) 
+            else if(contador == 2 ) // si la celula está viva y tiene exactamente dos vecinos vivos, también sobrevive, se queda igual
             {
                 nuevageneracion[(m+1)][(n+1)] = tableronormal[(m+1)][(n+1)];
             }
@@ -88,7 +93,7 @@ public class peresha {
  
 
 	
-	
+	//Aqui debe recibir la cantidad de celulas vivas, y generar ateriscos y espacios aleatorios en la matriz
 	private void asignavida(int tabla[][]){
 		
 		for(int i = 0 ; i < m ; i++){

@@ -16,7 +16,7 @@ public class peresha {
 	public peresha()
     {}
 	
-	private void juego(){
+	private void analizaestado(){
 		
 	int posicion = tableronormal[(m)][(n)]; //posicion actual en que estamos, con el tablero ya con las celulas generadas
         int vecino1 = tableronormal[(m)][(n+1)];

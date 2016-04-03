@@ -106,19 +106,9 @@ public class peresha {
         }
 	}
 	
-	private void inicializaTableros(int tablero[][])
-    {
-        for(int i = 0 ; i < m ; i++)
-        {
-            for(int j= 0 ; j < m ; j++)
-            {
-                tablero[i][j] = 0;
-            }
-        }
-    }
 	
 	
-	
+	//Hace el tablero(matriz) en la que se empezará a jugar
 	private void inicio(int tableronormal[][])
     {
         for(int i = 0 ; i < m ; i++)

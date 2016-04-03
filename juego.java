@@ -117,9 +117,6 @@ public class peresha {
         }
     }
 	
-	private void davida(){
-		//celulasaleatorios
-	}
 	
 	
 	private void inicio(int tableronormal[][])
@@ -136,14 +133,14 @@ public class peresha {
 	
 	
 	  public static void main(String [] args) {
-		  int tamañomatriz;
+		  int tamaÃ±omatriz;
 		  int celulasvivas;
 		  int generaciones;
 		  
 		  Scanner sc = new Scanner(System.in);
-		  System.out.print("Introduzca el tamaño de la matriz cuadrada: ");
-		  tamañomatriz = sc.nextInt();
-		  System.out.println("Diga el numero de celulas vivas (¡menor que " + tamañomatriz*tamañomatriz + " !");
+		  System.out.print("Introduzca el tamaÃ±o de la matriz cuadrada: ");
+		  tamaÃ±omatriz = sc.nextInt();
+		  System.out.println("Diga el numero de celulas vivas (Â¡menor que " + tamaÃ±omatriz*tamaÃ±omatriz + " !");
 		  celulasvivas = sc.nextInt();
 		  System.out.println("Numero de generaciones a ver: ");
 		  generaciones = sc.nextInt();
